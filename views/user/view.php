@@ -4,6 +4,8 @@
  * Author Smiths
  * Created at 2019/5/5 17:26
  */
+
+use app\models\User;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use mdm\admin\components\Helper;
@@ -52,8 +54,18 @@ $controllerId = $this->context->uniqueId . '/';
         'attributes' => [
             'username',
             'email:email',
-            'created_at:date',
-            'status',
+            [
+                'attribute'=>'created_at',
+                'value' => function($model){
+                    return date('Y-m-d H:i:s',$model->created_at);
+                }
+            ],
+            [
+                'attribute'=>'status',
+                'value' => function ($model) {
+                    return User::$aStatus[$model->status];
+                },
+            ],
         ],
     ])
     ?>
