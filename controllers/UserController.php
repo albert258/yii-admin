@@ -46,6 +46,11 @@ class UserController extends Controller
             ],
         ];
     }
+
+    /**
+     * 验证修改密码的表单
+     * @return array
+     */
     public function actionValidateForm(){
         Yii::$app->response->format = Response::FORMAT_JSON;
         $model = new ChangePassword();

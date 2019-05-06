@@ -4,12 +4,12 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
-    'name' => 'PKK',
-    'basePath' => dirname(__DIR__),
+    'id'        => 'basic',
+    'name'      => 'PKK',
+    'basePath'  => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language' => 'zh-CN',
-    'timeZone' => 'Asia/Shanghai',
+    'language'  => 'zh-CN',
+    'timeZone'  => 'Asia/Shanghai',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -17,6 +17,9 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'mdm\admin\Module',
+        ],
+        'api' => [
+            'class' => 'app\modules\api\Module',
         ],
         'dynagrid'=> [
             'class'=>'\kartik\dynagrid\Module',
@@ -54,7 +57,7 @@ $config = [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
-                    'class' => 'yii\log\FileTarget',
+                    'class'  => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
             ],
@@ -62,17 +65,17 @@ $config = [
         'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
+            'showScriptName'  => false,
             'rules' => [
             ],
         ],
         'i18n' => [
             'translations' => [
                 '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class'    => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@app/messages',
-                    'fileMap' => [
-                        'app' => 'app.php',
+                    'fileMap'  => [
+                        'app'       => 'app.php',
                         'app/error' => 'error.php',
                     ],
                 ],
@@ -80,10 +83,11 @@ $config = [
         ],
     ],
     'as access' => [
-        'class' => 'mdm\admin\components\AccessControl',
+        'class'        => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/login',
             'admin/*',
+            'api/*'
         ]
     ],
     'params' => $params,
