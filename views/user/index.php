@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         [
             'class' => 'yii\grid\ActionColumn',
-            'template' => Helper::filterActionColumn(['view', 'activate', 'delete']),
+            'template' => Helper::filterActionColumn(['view', 'activate', 'delete','resetpwd']),
             'buttons' => [
                 'activate' => function($url, $model) {
                     if ($model->status == 10) {
@@ -63,6 +63,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         'data-pjax' => '0',
                     ];
                     return Html::a('<span class="glyphicon glyphicon-ok"></span>', $url, $options);
+                },
+                'resetpwd' => function($url, $model) {
+                    $options = [
+                        'title' => Yii::t('rbac-admin', 'Reset Pwd'),
+                        'aria-label' => Yii::t('rbac-admin', 'Reset Pwd'),
+                        'data-confirm' => Yii::t('rbac-admin', 'Are you sure you want to reset this user?'),
+                        'data-method' => 'post',
+                        'data-pjax' => '0',
+                    ];
+                    return Html::a('<span class="glyphicon glyphicon-repeat"></span>', $url, $options);
                 }
             ]
         ],

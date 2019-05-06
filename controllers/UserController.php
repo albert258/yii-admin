@@ -154,4 +154,15 @@ class UserController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionResetpwd( $id ){
+
+        $model = $this->findModel($id);
+        $model->setPassword('123456');
+        $model->generateAuthKey();
+        if( $model->save()) {
+            Yii::$app->session->setFlash('success', '操作成功');
+        }
+        $this->redirect(['index']);
+    }
 }

@@ -68,6 +68,7 @@ return [
     'Created At' => '创建时间',
     'Status' => '状态',
     'Create User' => '创建用户',
+    'Reset Pwd' => '重置密码',
     '\'{class}\' must extend from \'yii
 bacRule\' or its child class' => '',
     'Create label' => '',
@@ -97,4 +98,5 @@ bacRule\' or its child class' => '',
     'Update Permission' => '@@更新权限@@',
     'Update Role' => '@@更新角色@@',
     'User' => '@@用户@@',
+    'Are you sure you want to reset this user?' => '确定要重置密码吗？',
 ];
